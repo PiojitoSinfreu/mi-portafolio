@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Ignacio Sinfreu - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+	<header class="main-header">
+		<nav class="navbar">
+			<div class="container page-container">
+				<h1 class="logo">IGNACIO SINFREU</h1>
+				<ul class="nav-links">
+					<li><a href="#about">ABOUT</a></li>
+					<li><a href="#projects">PROJECTS</a></li>
+					<li><a href="#skills">SKILLS</a></li>
+					<li><a href="#contact">CONTACT</a></li>
+				</ul>
+			</div>
+			<button id="language-toggle" class="language-toggle">EN</button>
+		</nav>
+	</header>
+
+    <section id="hero" class="hero">
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        <div class="hero-content">
+            <h2 class="welcome">Hello, I'm Ignacio.</h2>
+			<p class="text1" id="typing-text"></p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">Explore My Work</a>
+                <a href="IS_CV.pdf" download="Ignacio_Sinfreu_CV" class="cv-button">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="social-links" style="margin-left: 20px;">
+        <a href="mailto:ignaciosinfreu@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://discordapp.com/users/691851658250158091" title="Discord"><i class="fab fa-discord"></i></a>
+        <a href="https://github.com/PiojitoSinfreu" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <section id="about" class="about">
+        <div class="container about-content page-container">
+            <h2 class="aboutText">About Me</h2>
+            <p class="aboutText2">Hi there, I'm Ignacio. I’m passionate about web design and love creating digital experiences that truly connect with people and their projects. I focus on designing personalized websites that are sleek, modern, and tailored to the specific needs of each client. I believe in keeping things simple, but effective. Learning is part of who I am, and I enjoy taking on challenges that push me to grow and find creative solutions. Whether I'm working independently or collaborating with a team, I put my heart into making sure each project is not only visually appealing but also easy to use and impactful.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container page-container" >
+            <h2 class="proyecto">Projects</h2>
+            <div class="project-gallery">
+                <div class="project-item">
+                    <h3 class="proyectA">Project 1</h3>
+                    <p class="proyectA_Text">A short description of the project goes here.</p>
+                </div>
+                <div class="project-item">
+                    <h3 class="proyectB">Project 2</h3>
+                    <p class="proyectB_Text">A short description of the project goes here.</p>
+                </div>
+                <div class="project-item">
+                    <h3 class="proyectC">Project 3</h3>
+                    <p class="proyectC_Text">A short description of the project goes here.</p>
+                </div>
+				<div class="project-item">
+                    <h3 class="proyectD">Project 4</h3>
+                    <p class="proyectD_Text">A short description of the project goes here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container page-container" >
+            <h2>Skills</h2>
+            <ul>
+                <li><img src="icons/icon_html.png" alt="HTML icon">HTML</li>
+                <li><img src="icons/icon_css.png" alt="CSS icon">CSS</li>
+                <li><img src="icons/icon_php.png" alt="PHP icon">PHP</li>
+                <li><img src="icons/icon_js.png" alt="JavaScript icon">JavaScript</li>
+                <li><img src="icons/icon_ts.png" alt="TypeScript icon">TypeScript</li>
+                <li><img src="icons/icon_react.png" alt="React icon">React</li>
+                <li><img src="icons/icon_node.png" alt="Node.js icon">Node.js</li>
+            </ul>
+        </div>
+    </section>
+	
+	<section id="services" class="services">
+        <div class="container page-container" >
+            <h2>Code Services</h2>
+			<p>Web Development</p>
+			<p>Landing Page Development</p>
+			<p>Frontend Development</p>
+			<p>Backend Development</p>
+			<p>Full Stack Projects</p>
+			<p>Other Services (Graphic design - Email marketing - Community manager)</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container page-container" >
+            <h2 class="contactame">Contact Me</h2>
+            <form class="contact-form">
+                <label class="nambre" for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label class="msgContact" for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container page-container" >
+            <p>&copy; 2024 Ignacio Sinfreu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="efecto.js"></script>
+	<script src="language.js"></script>
+</body>
+</html>
