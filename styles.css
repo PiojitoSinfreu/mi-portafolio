@@ -5,6 +5,7 @@ body {
     color: #E6F1FF;
     padding: 0;
     box-sizing: border-box;
+	overflow-x: hidden;
 }
 
 h2 {
@@ -103,6 +104,7 @@ h2::after {
     color: #64FFDA;
 }
 
+/* Estilo base para la sección hero */
 .hero {
     position: relative;
     height: 100vh;
@@ -110,6 +112,7 @@ h2::after {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    padding: 0 1rem; /* Añadir padding lateral para evitar corte del contenido */
 }
 
 .hero-canvas {
@@ -125,78 +128,83 @@ h2::after {
     position: relative;
     text-align: center;
     z-index: 1;
+    max-width: 90%; /* Limitar el ancho del contenido para pantallas pequeñas */
 }
 
+/* Ajuste del título principal */
 .hero h2 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem); /* Ajuste de tamaño dinámico */
     color: #64FFDA;
     font-weight: bold;
     animation: slideIn 1.5s ease-out;
+    margin-bottom: 1rem;
+}
+.hero h2::after {
+    background-color: #64FFDA00;
+    margin: 1px auto 0 auto; /* Centrando la línea decorativa debajo del título */
 }
 
-@keyframes slideIn {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
+/* Ajuste del texto */
 .hero p {
-    font-size: 1.25rem;
-    margin-top: 1rem;
+    font-size: clamp(1rem, 3vw + 0.5rem, 1.5rem); /* Ajuste de tamaño dinámico para que no se corte */
+    line-height: 1.4;
     color: #ccd6f6;
+    margin-bottom: 2rem;
+    overflow-wrap: break-word; /* Permitir que las palabras largas se dividan */
+    width: 100%;
 }
 
+/* Ajuste de botones */
 .hero-buttons {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     display: flex;
     gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap; /* Permitir que los botones se alineen en dos filas si es necesario */
 }
 
-.text1 {
-    font-size: 1.25rem;
-    color: #ccd6f6;
-    border-right: 2px solid #64FFDA; /* Cursor que parpadea */
-    width: fit-content;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.btn-primary {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    background-color: #64FFDA;
-    color: #0A192F;
+.btn-primary, .cv-button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s, transform 0.3s;
-    text-align: center;
-    font-weight: bold;
-}
-
-.btn-primary:hover {
-    background-color: #3CBFB8;
-    transform: scale(1.05);
-}
-
-.cv-button {
-    padding: 0.75rem 2rem;
+    color: #0a192f;
     background-color: #64FFDA;
-    color: #0A192F;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s, transform 0.3s;
     font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-.cv-button:hover {
-    background-color: #3CBFB8;
-    transform: scale(1.05);
+.btn-primary:hover, .cv-button:hover {
+    background-color: #52cca7;
+}
+
+/* Ajustes para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
+    .hero {
+        height: auto; /* Ajustar altura automáticamente para evitar problemas de corte */
+        padding: 4rem 1rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem; /* Reducir el tamaño del título para que no se corte */
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Alinear los botones verticalmente */
+        gap: 0.5rem; /* Reducir espacio entre botones */
+    }
+
+    .btn-primary, .cv-button {
+        width: 100%; /* Botones al 100% del ancho disponible */
+        max-width: 300px; /* Añadir un máximo para evitar que sean demasiado grandes */
+        padding: 0.8rem;
+    }
+
+    .text1 {
+        font-size: 1rem; /* Reducir tamaño del texto dinámico para evitar cortes */
+        overflow-wrap: break-word;
+        text-align: center; /* Centrar el texto */
+    }
 }
 
 .social-links {
@@ -275,14 +283,13 @@ h2::after {
 }
 
 .about p {
-    max-width: 700px;
     margin-top: 20px;
     line-height: 1.7;
     color: #ccd6f6;
     text-align: justify; /* Centramos el texto para darle una apariencia simétrica */
     padding: 20px;
     border-radius: 10px;
-	padding-left: 90px;
+    max-width: 90%; /* Se asegura de que el texto no sobrepase los bordes del contenedor */
 }
 
 /* Ajuste del contenedor principal para mejorar la simetría */
@@ -291,8 +298,8 @@ h2::after {
     flex-direction: column;
     align-items: center;
     text-align: center;
+	margin: 0 auto;
 }
-
 
 .project-gallery {
     display: grid;
@@ -507,38 +514,81 @@ h2::after {
     transform: scale(1.1);
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
-    .language-toggle {
+    /* Ocultar el menú y centrar el logo en móviles */
+    .nav-links {
         display: none;
     }
+
+    .main-header .container {
+        justify-content: center;
+    }
+
+    .logo {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .language-toggle {
+        display: none; /* Ocultar botón de cambio de idioma */
+    }
 }
-
-/* Responsive Design */
-@media (min-width: 768px) {
-    .navbar .container {
-        flex-direction: row;
-    }
-
-    .hero h2 {
-        font-size: 4rem;
-    }
-
+@media (max-width: 768px) {
     .about-content {
-        flex-direction: row;
-        text-align: left;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    .about-content p {
-        max-width: 600px;
-        margin-left: 2rem;
+    .about-content img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 1.5rem;
+    }
+
+    .service-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* Menor espacio entre tarjetas para móviles */
+    }
+
+    .service-card {
+        padding: 20px;
     }
 
     .social-links {
-        top: 20%;
-        transform: translateY(0);
+        display: none; /* Ocultar enlaces sociales en la vista móvil */
+    }
+
+    .hero h2 {
+        font-size: 2.5rem; /* Reducir tamaño de fuente para móviles */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Reducir tamaño del texto descriptivo */
     }
 }
+@media (max-width: 768px) {
+    #code-services-container {
+        padding: 30px 10px;
+        margin: 20px auto;
+        max-width: 100%; /* Ocupa el 100% del ancho de la pantalla */
+    }
 
+    .skills ul {
+        flex-direction: column;
+        gap: 15px; /* Menor espacio entre los ítems */
+    }
+
+    .skills ul li {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 1rem;
+    }
+}
 @media (min-width: 1024px) {
     .hero h2 {
         font-size: 5rem;
@@ -557,4 +607,3 @@ h2::after {
         transform: translateY(-50%);
     }
 }
-
